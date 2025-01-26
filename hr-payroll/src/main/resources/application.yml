@@ -1,0 +1,6 @@
+server:
+ port: 8101
+
+# Database configuration
+spring:
+ application.name: hr-payroll
