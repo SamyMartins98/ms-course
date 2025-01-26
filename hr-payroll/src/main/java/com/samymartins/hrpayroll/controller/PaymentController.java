@@ -1,4 +1,4 @@
-package com.samymartins.hrpayroll.services.controllers;
+package com.samymartins.hrpayroll.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class PaymentController {
 	
 	private final PaymentService paymentService;
 	
-	@GetMapping(value = "/{workerId}/{days}")
+	@GetMapping(value = "/{workerId}/days/{days}")
 	public ResponseEntity<Payment> getPayments(@PathVariable Long workerId, @PathVariable Integer days) {
 		return ResponseEntity.ok(paymentService.getPayment(workerId, days));
 		
