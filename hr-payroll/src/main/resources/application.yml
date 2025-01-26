@@ -1,9 +1,31 @@
 server:
- port: 8101
+  port: 8101
 
-# Database configuration
+# Configuração do nome da aplicação
 spring:
- application.name: hr-payroll
- 
-hr-worker:
- host: http://localhost:8001/workers
+  application:
+    name: hr-payroll
+
+  cloud:
+    discovery:
+      enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+
+logging:
+  level:
+    org.springframework.cloud.openfeign: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
