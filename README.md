@@ -9,3 +9,10 @@ Curso de Java 11 e Spring Boot 2.3.4! Aprenda Feign, Ribbon, Hystrix, OAuth, JWT
 **Java 11 -> para Java 17**
 
 **Ribbon para Spring Cloud**
+
+
+## FAQ
+
+#### Com a utilização do Spring Cloud e Resilience4j, é necessário colocar anotação na classe principal?
+
+R: Não, a configuração automática do Spring Boot já cuida disso para você.
