@@ -1,0 +1,37 @@
+server:
+  port: 8765
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      register-with-eureka: true
+      fetch-registry: true
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: hr-api-gateway
+
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 5000
+      discovery:
+        locator:
+          enabled: true  
+          lower-case-service-id: true  
+      routes:
+        - id: hr-worker
+          uri: lb://hr-worker  
+          predicates:
+            - Path=/hr-worker/**
+
+        - id: hr-payroll
+          uri: lb://hr-payroll
+          predicates:
+            - Path=/hr-payroll/**
+

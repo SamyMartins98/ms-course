@@ -1,5 +1,5 @@
 server:
-  port: 8101
+  port: ${PORT:0}
 
 # Configuração do nome da aplicação
 spring:
@@ -25,8 +25,35 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: FULL
+  circuitbreaker:
+    enabled: true
 
 logging:
   level:
     org.springframework.cloud.openfeign: DEBUG
     org.springframework.web.client.RestTemplate: DEBUG
+    io.github.resilience4j: DEBUG
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      paymentService:
+        failureRateThreshold: 50
+        slowCallRateThreshold: 50
+        slowCallDurationThreshold: 2000
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 10
+        waitDurationInOpenState: 10000
+
+management:
+  endpoints:
+    web:
+     exposure:
+      include: "*"
+    endpoint:
+      health:
+        show-details: always
+    metrics:
+      enable:
+        resilience4j: true
+

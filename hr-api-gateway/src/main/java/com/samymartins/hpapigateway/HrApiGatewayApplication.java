@@ -1,4 +1,4 @@
-package com.samymartins.hrworker;
+package com.samymartins.hpapigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class HrWorkerApplication {
+public class HrApiGatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HrWorkerApplication.class, args);
+		SpringApplication.run(HrApiGatewayApplication.class, args);
 	}
 
 }
