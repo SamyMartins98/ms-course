@@ -8,7 +8,9 @@ Curso de Java 11 e Spring Boot 2.3.4! Aprenda Feign, Ribbon, Hystrix, OAuth, JWT
 
 **Java 11 -> para Java 17**
 
-**Ribbon para Spring Cloud**
+**Ribbon -> Spring Cloud**
+
+**Gateway Zuul -> Gateway**
 
 
 ## FAQ
