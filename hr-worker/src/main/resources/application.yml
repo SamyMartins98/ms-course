@@ -12,6 +12,8 @@ spring:
     console:
       enabled: true
       path: /h2-console
+  config:
+    import: "configserver:http://localhost:8888" 
 
 eureka:
   client:
